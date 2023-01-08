@@ -16,7 +16,7 @@ class Converter:
         os.makedirs('./csvs', exist_ok=True)
 
     def convert(self, max_num):
-        train_csv = open('./csvs/train_old.csv', 'w')
+        train_csv = open('./csvs/train.csv', 'w')
         test_csv = open('./csvs/test.csv', 'w')
         train_written = 0
         test_written = 0
@@ -34,7 +34,7 @@ class Converter:
             for i in tqdm(range(data_to_write.shape[0])):
                 if counter >= max_num:
                     break
-                subset.write(f'{data_to_write[i][0]},{data_to_write[i][1]}\n')
+                subset.write(f'{data_to_write[i][0]}\t{data_to_write[i][1]}\n')
                 counter += 1
             train_written = counter if 'train' in file else train_written
             test_written = counter if 'train' in file else test_written
