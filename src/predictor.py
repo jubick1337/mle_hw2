@@ -36,7 +36,6 @@ class Predictor:
         self.spark_config.set("spark.driver.memory", "16g")
         self.spark_config.set("spark.driver.maxResultSize", "16g")
         self.spark_config.set("spark.sql.parquet.compression.codec", "gzip")
-
         self.num_parts = int(self.config.get("SPARK", "NUM_PARTS"))
 
         self.sc = SparkContext.getOrCreate(conf=self.spark_config)
